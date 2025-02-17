@@ -37,11 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: "product/:id",
-        element: (
-          <PrivateRoutes>
-            <ProductDetails />
-          </PrivateRoutes>
-        ),
+        element: <ProductDetails />,
       },
       {
         path: "auth/login",

@@ -139,6 +139,10 @@ const ProductDetails = () => {
   };
 
   const handleReportReason = (response) => {
+    if (!user) {
+      navigate("/auth/login");
+      return;
+    }
     document.getElementById("reportModal").showModal();
     setReason(response.target.value);
   };
@@ -308,67 +312,71 @@ const ProductDetails = () => {
 
               {/* Post Review Section */}
               <div className="lg:w-[35%]">
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                  Post a Review
-                </h3>
-                <form onSubmit={handelReviewSubmit} className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <img
-                      src={user?.photoURL}
-                      alt={user?.displayName}
-                      className="w-12 h-12 rounded-full"
-                    />
-                    <div>
-                      <p className="text-gray-800 font-medium">
-                        {user?.displayName}
-                      </p>
-                      <input
-                        type="hidden"
-                        value={user?.displayName}
-                        name="reviewerName"
-                      />
-                      <input
-                        type="hidden"
-                        value={user?.photoURL}
-                        name="reviewerImage"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 font-medium mb-1">
-                      Review Description
-                    </label>
-                    <textarea
-                      name="reviewDescription"
-                      className="w-full p-3 border rounded-lg shadow-sm focus:ring focus:ring-blue-300"
-                      rows="4"
-                      required
-                    ></textarea>
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 font-medium mb-1">
-                      Rating
-                    </label>
-                    <select
-                      name="rating"
-                      className="w-full p-3 border rounded-lg shadow-sm focus:ring focus:ring-blue-300"
-                      required
-                    >
-                      <option value="">Select a Rating</option>
-                      <option value="1">1 Star</option>
-                      <option value="2">2 Stars</option>
-                      <option value="3">3 Stars</option>
-                      <option value="4">4 Stars</option>
-                      <option value="5">5 Stars</option>
-                    </select>
-                  </div>
-                  <button
-                    type="submit"
-                    className="bg-slate-800 w-full flex items-center gap-x-2 text-center justify-center  text-white py-3 px-6 rounded-lg  hover:bg-slate-700 transition"
-                  >
-                    Post Review <FaRegCommentDots />
-                  </button>
-                </form>
+                {user && (
+                  <>
+                    <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                      Post a Review
+                    </h3>
+                    <form onSubmit={handelReviewSubmit} className="space-y-4">
+                      <div className="flex items-center gap-4">
+                        <img
+                          src={user?.photoURL}
+                          alt={user?.displayName}
+                          className="w-12 h-12 rounded-full"
+                        />
+                        <div>
+                          <p className="text-gray-800 font-medium">
+                            {user?.displayName}
+                          </p>
+                          <input
+                            type="hidden"
+                            value={user?.displayName}
+                            name="reviewerName"
+                          />
+                          <input
+                            type="hidden"
+                            value={user?.photoURL}
+                            name="reviewerImage"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-gray-700 font-medium mb-1">
+                          Review Description
+                        </label>
+                        <textarea
+                          name="reviewDescription"
+                          className="w-full p-3 border rounded-lg shadow-sm focus:ring focus:ring-blue-300"
+                          rows="4"
+                          required
+                        ></textarea>
+                      </div>
+                      <div>
+                        <label className="block text-gray-700 font-medium mb-1">
+                          Rating
+                        </label>
+                        <select
+                          name="rating"
+                          className="w-full p-3 border rounded-lg shadow-sm focus:ring focus:ring-blue-300"
+                          required
+                        >
+                          <option value="">Select a Rating</option>
+                          <option value="1">1 Star</option>
+                          <option value="2">2 Stars</option>
+                          <option value="3">3 Stars</option>
+                          <option value="4">4 Stars</option>
+                          <option value="5">5 Stars</option>
+                        </select>
+                      </div>
+                      <button
+                        type="submit"
+                        className="bg-slate-800 w-full flex items-center gap-x-2 text-center justify-center  text-white py-3 px-6 rounded-lg  hover:bg-slate-700 transition"
+                      >
+                        Post Review <FaRegCommentDots />
+                      </button>
+                    </form>
+                  </>
+                )}
               </div>
             </div>
           </div>
