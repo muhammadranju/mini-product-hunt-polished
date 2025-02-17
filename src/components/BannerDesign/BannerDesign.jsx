@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const BannerDesign = () => {
   const { user } = useContext(AuthContext);
   return (
-    <div className="mx-auto mt-10">
+    <div className="mx-auto t-10">
       <div className="relative h-[500px] w-full ">
         <div
           className="absolute inset-0 bg-cover bg-center "
@@ -21,11 +21,7 @@ const BannerDesign = () => {
             Embark on an exciting adventure today! Let’s explore your journey
             right now and discover the endless possibilities that await.
           </p>
-          <Link to={"dashboard/user/my-profile"}>
-            <button className="bg-slate-900 border-[1px] border-slate-600 text-slate-50 py-2 px-6 rounded-full text-lg font-semibold hover:bg-slate-800 transition">
-              About Us
-            </button>
-          </Link>
+
           {user ? (
             <>
               {" "}
