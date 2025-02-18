@@ -10,6 +10,12 @@ import toast from "react-hot-toast";
 import { auth } from "@/firebase/firebase.config";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
+const credentials = {
+  user: { email: "user@gmail.com", password: "User123" },
+  moderator: { email: "moderator@mgail.com", password: "Moderator123" },
+  admin: { email: "admin@gmail.com", password: "Admin123" },
+};
+
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -117,6 +123,13 @@ const Login = () => {
     }
   };
 
+  const handleCredentialSelect = (e) => {
+    const selectedRole = e.target.value;
+    if (credentials[selectedRole]) {
+      setFormData(credentials[selectedRole]);
+    }
+  };
+
   return (
     <div className="flex w-full max-w-md my-20 mx-auto overflow-hidden rounded-lg shadow-lg lg:max-w-5xl">
       <div
@@ -170,12 +183,28 @@ const Login = () => {
         </div>
         <form onSubmit={handleSubmit}>
           <div className="mt-4">
-            <label
-              className="block mb-2 text-sm font-medium text-slate-600 dark:text-slate-200"
-              htmlFor="email" // Correct id
-            >
-              Email Address
-            </label>
+            <div className="flex justify-between items-center">
+              <label
+                className="block mb-2 text-sm font-medium text-slate-600 dark:text-slate-200"
+                htmlFor="email" // Correct id
+              >
+                Email Address
+              </label>
+              <div>
+                <select
+                  id="countries"
+                  class=" text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  onChange={handleCredentialSelect}
+                >
+                  <option disabled selected>
+                    Login Credentials
+                  </option>
+                  <option value="user">User Credential</option>
+                  <option value="moderator">Moderator Credential</option>
+                  <option value="admin">Admin Credential</option>
+                </select>
+              </div>
+            </div>
             <input
               id="email" // Match this id with formData key
               className="block w-full px-4 py-2 text-slate-700 bg-white border rounded-lg dark:bg-slat-900 dark:text-slate-300 dark:border-slate-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
