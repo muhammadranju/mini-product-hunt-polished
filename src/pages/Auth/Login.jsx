@@ -12,7 +12,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 const credentials = {
   user: { email: "user@gmail.com", password: "User123" },
-  moderator: { email: "moderator@mgail.com", password: "Moderator123" },
+  moderator: { email: "moderator@gmail.com", password: "Moderator123" },
   admin: { email: "admin@gmail.com", password: "Admin123" },
 };
 
