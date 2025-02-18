@@ -22,8 +22,8 @@ const CouponDisplay = ({ coupons }) => {
   };
 
   return (
-    <section className="mt-10">
-      <div className="mx-auto">
+    <section className="py-20 bg-gray-50">
+      <div className=" w-11/12 md:w-11/12 lg:w-11/12 xl:container mx-auto">
         <h2 className="text-3xl font-semibold text-center  text-gray-800">
           Limited Time Offers
         </h2>
@@ -85,8 +85,8 @@ const CouponDisplay = ({ coupons }) => {
                     Valid Till:{" "}
                     {new Date(coupon.expiryDate).toLocaleDateString()}
                   </p>
-                  <div className="w-12 h-12 bg-white rounded-full absolute top-1/2 transform -translate-y-1/2 left-0 -ml-6" />
-                  <div className="w-12 h-12 bg-white rounded-full absolute top-1/2 transform -translate-y-1/2 right-0 -mr-6" />
+                  <div className="w-12 h-12 bg-gray-50 rounded-full absolute top-1/2 transform -translate-y-1/2 left-0 -ml-6" />
+                  <div className="w-12 h-12 bg-gray-50 rounded-full absolute top-1/2 transform -translate-y-1/2 right-0 -mr-6" />
                 </div>
               </div>
             </SwiperSlide>

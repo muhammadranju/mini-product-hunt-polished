@@ -1,8 +1,10 @@
 import DashboardRoot from "@/layout/DashboardRoot";
 import Root from "@/layout/Root";
+import About from "@/pages/About/About";
 import Login from "@/pages/Auth/Login";
 import Signup from "@/pages/Auth/Signup";
 import ManageCoupons from "@/pages/Dashboard/Admin/ManageCoupons";
+import ManageReviews from "@/pages/Dashboard/Admin/ManageReviews";
 import ManageUsers from "@/pages/Dashboard/Admin/ManageUsers";
 import Statistics from "@/pages/Dashboard/Admin/Statistics";
 import Dashboard from "@/pages/Dashboard/Dashboard";
@@ -11,15 +13,16 @@ import ReportedContents from "@/pages/Dashboard/Moderator/ReportedContents";
 import AddProduct from "@/pages/Dashboard/User/AddProduct";
 import MyProduct from "@/pages/Dashboard/User/MyProduct";
 import MyProfile from "@/pages/Dashboard/User/MyProfile";
+import Faq from "@/pages/Faq/Faq";
 import Home from "@/pages/Home/Home";
 import NotFound from "@/pages/NotFound/NotFound";
 import ProductDetails from "@/pages/Product/ProductDetails";
 import Products from "@/pages/Product/products";
 import { createBrowserRouter } from "react-router-dom";
-import PrivateRoutes from "./PrivateRoute";
 import IsAdmin from "./IsAdmin";
-import ManageReviews from "@/pages/Dashboard/Admin/ManageReviews";
 import IsModerator from "./IsModerator";
+import PrivateRoutes from "./PrivateRoute";
+import Blogs from "@/pages/Blogs/Blogs";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +49,18 @@ const router = createBrowserRouter([
       {
         path: "auth/signup",
         element: <Signup />,
+      },
+      {
+        path: "blogs",
+        element: <Blogs />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "faq",
+        element: <Faq />,
       },
     ],
   },

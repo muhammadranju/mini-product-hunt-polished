@@ -38,6 +38,15 @@ const Navbar = () => {
               <li>
                 <NavLink to={"/products"}>Products</NavLink>
               </li>
+              <li>
+                <NavLink to={"/about"}>About Us</NavLink>
+              </li>
+              <li>
+                <NavLink to={"/contact"}>Contact Us</NavLink>
+              </li>
+              <li>
+                <NavLink to={"/faq"}>FAQ</NavLink>
+              </li>
             </ul>
           </div>
           <NavLink
@@ -78,6 +87,7 @@ const Navbar = () => {
                 Products
               </NavLink>
             </li>
+
             <li>
               <NavLink
                 className={({ isActive }) =>
@@ -85,19 +95,7 @@ const Navbar = () => {
                     isActive ? "text-blue-600 font-bold" : "text-slate-600"
                   }`
                 }
-                to={"/products"}
-              >
-                Discount's
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  `flex items-center py-2 px-3 text-sm rounded-lg hover:text-blue-600 hover:bg-transparent ${
-                    isActive ? "text-blue-600 font-bold" : "text-slate-600"
-                  }`
-                }
-                to={"/products"}
+                to={"/about"}
               >
                 About Us
               </NavLink>
@@ -109,9 +107,21 @@ const Navbar = () => {
                     isActive ? "text-blue-600 font-bold" : "text-slate-600"
                   }`
                 }
-                to={"/products"}
+                to={"/blogs"}
               >
-                Contact Us
+                Blogs
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  `flex items-center py-2 px-3 text-sm rounded-lg hover:text-blue-600 hover:bg-transparent ${
+                    isActive ? "text-blue-600 font-bold" : "text-slate-600"
+                  }`
+                }
+                to={"/faq"}
+              >
+                FAQ
               </NavLink>
             </li>
           </ul>
@@ -146,7 +156,7 @@ const Navbar = () => {
                         user?.photoURL ||
                         "https://avatars.githubusercontent.com/u/80270685?v=4"
                       }
-                      className="lg:w-12 w-14  rounded-full    p-1"
+                      className="lg:w-10 w-10  rounded-full    p-[2px]"
                       alt=""
                     />
                   </div>
@@ -156,7 +166,7 @@ const Navbar = () => {
                   </div>
                 </div>
               </summary>
-              <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] lg:-ml-10 -ml-12 lg:w-44 p-2 shadow">
+              <ul className="menu dropdown-content bg-base-200 rounded-box z-[1] lg:-ml-10 -ml-12 lg:w-44 p-2 shadow">
                 <li className="text-lg font-semibold ml-4 text-slate-800">
                   {user?.displayName}
                 </li>

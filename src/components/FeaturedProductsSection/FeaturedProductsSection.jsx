@@ -24,7 +24,7 @@ const FeaturedProductsSection = () => {
     fetchProducts();
   }, []);
   return (
-    <section className="py-16 ">
+    <section className="py-16 w-11/12 md:w-11/12 lg:w-11/12 xl:container mx-auto">
       <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col justify-center items-center mb-8">
           <h3 className="text-3xl text-center font-bold text-slate-900 ">
